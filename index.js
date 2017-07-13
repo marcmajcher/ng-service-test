@@ -5,18 +5,18 @@
 
   angular.module("app", [])
     .component('hello', {
-      controller: helloController,
+      controller: HelloController,
       templateUrl: '/tmpl/hello.html'
     })
     .component('helloForm', {
-      controller: helloFormController,
+      controller: HelloFormController,
       templateUrl: '/tmpl/helloForm.html'
     })
-    .service('PersonService', personService);
+    .service('PersonService', PersonService);
 
-  helloController.$inject = ['PersonService'];
+  HelloController.$inject = ['PersonService'];
 
-  function helloController(PersonService) {
+  function HelloController(PersonService) {
     const vm = this;
 
     vm.$onInit = function() {
@@ -24,9 +24,9 @@
     };
   }
 
-  helloFormController.$inject = ['PersonService'];
+  HelloFormController.$inject = ['PersonService'];
 
-  function helloFormController(PersonService) {
+  function HelloFormController(PersonService) {
     const vm = this;
 
     vm.firstName = 'durr';
@@ -36,10 +36,10 @@
 
     vm.updateName = function() {
       PersonService.updateName(vm.firstName, vm.lastName);
-    }
+    };
   }
 
-  function personService() {
+  function PersonService() {
     this.firstName = 'First';
     this.lastName = 'Last';
 
@@ -47,7 +47,7 @@
       console.log(this);
       this.firstName = first;
       this.lastName = last;
-    }
+    };
   }
 
 })();
