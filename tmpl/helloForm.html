@@ -1,3 +1,9 @@
+<!--
+  Bind form fields to firstName and lastName in the HelloFormController.
+  This lets us change the first and last name in the component, without
+  updating the PersonService until you click the button.
+-->
+
 <p>First <input type="text" ng-model="$ctrl.firstName" /></p>
 <p>Last <input type="text" ng-model="$ctrl.lastName" /></p>
 <input type="submit" value="Update Name" ng-click="$ctrl.updateName()" />
